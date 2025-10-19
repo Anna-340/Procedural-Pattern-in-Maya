@@ -16,3 +16,7 @@
 #Challenge features
 #- Extra research for UI interface
 
+import maya.cmds as cmds
+import random
+
+def window_generation(self):
