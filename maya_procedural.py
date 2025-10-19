@@ -33,7 +33,7 @@ class SimpleWindowCreator():
         #- window size in general
         #clear out scene before adding more objects
         # get parameters from user from ui
-        frame = cmds.polyCube(width=2, height=2. 
+        frame = cmds.polyCube(width=2, height=2, 
                               depth=1, name="test_frame")[0]
         glass = cmds.polyCube(width=1, height=2, depth=1, name="test_glass")[0]
         cmds.move(0, 0, 0.5, glass)
@@ -42,9 +42,15 @@ class SimpleWindowCreator():
     test_onj = window_generation()
     print("test:", test_onj)
 
-    def create_windividers(self, width, height, horizontal, vertical):
+    def create_windividers(self, width=2, height=2, horizontal=1, vertical=1):
         # need user impirt for length width and height
         #clear pervious objects in the scene to keep it clean 
+        dividers = []
+        if horizontal >= 0:
+            spacing = height // (horizontal + 1)
+            for r in range(1, horizontal + 1)
+                div = cmds.polyCube
+
 
 
     def create_curtains(self, width, style, height):
