@@ -24,6 +24,7 @@ class SimpleWindowCreator():
 
     def ui_interface():
         #set up user inputt first then call other commands
+        #create windowtab for user imputs
         pass
 
 
@@ -32,6 +33,14 @@ class SimpleWindowCreator():
         #- window size in general
         #clear out scene before adding more objects
         # get parameters from user from ui
+        frame = cmds.polyCube(width=2, height=2. 
+                              depth=1, name="test_frame")[0]
+        glass = cmds.polyCube(width=1, height=2, depth=1, name="test_glass")[0]
+        cmds.move(0, 0, 0.5, glass)
+        return [frame, glass]
+    
+    test_onj = window_generation()
+    print("test:", test_onj)
 
     def create_windividers(self, width, height, horizontal, vertical):
         # need user impirt for length width and height
@@ -39,6 +48,9 @@ class SimpleWindowCreator():
 
 
     def create_curtains(self, width, style, height):
+        # user input w/ buttons as to if curtauns are opened, straight or wavy
+        # size of curtains S to L
+        #  
 
     def create_flower_pot(self, numof_flower):
 
