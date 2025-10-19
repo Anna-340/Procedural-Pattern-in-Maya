@@ -20,3 +20,15 @@ import maya.cmds as cmds
 import random
 
 def window_generation(self):
+    #- dividers on window horizontal and vertical
+    #- window size in general
+
+def create_windividers(self, width, height, horizontal, vertical):
+
+
+def create_curtains(self, width, style, height):
+
+def create_flower_pot(self, numof_flower):
+
+
+def 
