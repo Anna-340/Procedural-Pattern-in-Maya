@@ -22,8 +22,11 @@ import random
 def window_generation(self):
     #- dividers on window horizontal and vertical
     #- window size in general
+    #clear out scene before adding more objects
 
 def create_windividers(self, width, height, horizontal, vertical):
+    # need user impirt for length width and height
+    #clear pervious objects in the scene to keep it clean 
 
 
 def create_curtains(self, width, style, height):
