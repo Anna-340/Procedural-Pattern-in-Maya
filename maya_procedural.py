@@ -30,5 +30,3 @@ def create_curtains(self, width, style, height):
 
 def create_flower_pot(self, numof_flower):
 
-
-def 
