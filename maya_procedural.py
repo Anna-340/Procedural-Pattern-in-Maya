@@ -49,7 +49,7 @@ class SimpleWindowCreator():
         if horizontal >= 0:
             spacing = height // (horizontal + 1)
             for r in range(1, horizontal + 1)
-                div = cmds.polyCube
+                div = cmds.polyCube(width=width, height=2,)
 
 
 
