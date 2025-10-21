@@ -39,8 +39,10 @@ class SimpleWindowCreator():
         cmds.move(0,0, depth//2 - .05, glass)
         return glass
 
+SimpleWindowCreator()
+pass
     def horizontal_dividers(width, height, depth, count, thickness=0.1)
-
+        pass
     # def window_generation(self):
     #     #- dividers on window horizontal and vertical
     #     #- window size in general
