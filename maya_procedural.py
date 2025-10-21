@@ -39,11 +39,11 @@ class SimpleWindowCreator():
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
     
-    window_frame_test = create_window_frame(width=3.0, height=2.0, depth=0.2)
-    print(f"Created Window Frame: {window_frame_test}")
+    # window_frame_test = create_window_frame(width=3.0, height=2.0, depth=0.2)
+    # print(f"Created Window Frame: {window_frame_test}")
 
-    glass_test = create_glass(width=2.0, height=1.0, depth=0.2)
-    print(f"Created Window Frame: {glass_test}")
+    # glass_test = create_glass(width=2.0, height=1.0, depth=0.2)
+    # print(f"Created Window Frame: {glass_test}")
 
 
     def horizontal_dividers(width, height, depth, count, thickness=0.1)
