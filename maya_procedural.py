@@ -36,7 +36,7 @@ class SimpleWindowCreator():
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
                               d=0.02, name="window_glass")[0]
-        cmds.move(0,0, depth//2 - .05, glass)
+        cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
 
 SimpleWindowCreator()
