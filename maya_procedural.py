@@ -56,6 +56,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
-    dividers_test = horizontal_dividers(width=3.0, height=2.0, depth=0.2)
+    dividers_test = horizontal_dividers(width=3.0, height=2.0, depth=0.2, count=3.0)
     print(f"Created horz dividers: {horizontal_dividers}")
 
