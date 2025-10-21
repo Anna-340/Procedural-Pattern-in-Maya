@@ -28,8 +28,8 @@ class SimpleWindowCreator():
         pass
 
     def create_window_frame(width, height, depth, frame_thickness=0.2):
-        frame = cmds.polyCube(w=width + frame_thickness* 2,
-                              h=height + frame_thickness* 2,
+        frame = cmds.polyCube(w=width + frame_thickness * 2,
+                              h=height + frame_thickness * 2,
                               d=depth, name="window_frame")[0]
         return frame
 
@@ -56,7 +56,20 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
-    dividers_test = horizontal_dividers(width=3.0, height=2.0, 
-                                        depth=0.2, count=3)
-    print(f"Created horz dividers: {horizontal_dividers}")
+    # dividers_test = horizontal_dividers(width=3.0, height=2.0, 
+    #                                     depth=0.2, count=3)
+    # print(f"Created horz dividers: {horizontal_dividers}")
 
+    def vertical_dividers(width, height, depth, count, thickness=0.1):
+        dividers = []
+        for ver in range(count):
+            div_x = ((ver + 1) * height / (count + 1) - (height / 2)) 
+            div = cmds.polyCube(w=width, h=thickness, 
+                                d=depth, name=f"vert_div_{ver+1}")[0]
+            cmds.move(0, div_x, depth/2 - depth/2, div)
+            dividers.append(div)
+        return dividers
+
+    dividers_test = vertical_dividers(width=3.0, height=2.0, 
+                                        depth=0.2, count=3)
+    print(f"Created vert dividers: {vertical_dividers}")
