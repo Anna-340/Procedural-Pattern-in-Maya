@@ -27,6 +27,13 @@ class SimpleWindowCreator():
         #create windowtab for user imputs
         pass
 
+    def create_window_frame(width, height, depth, frame_thickness=0.5):
+        frame = cmds.polyCube(w=width + frame_thickness * 2,
+                              h=height + frame_thickness * 2,
+                              d=depth, name="window_frame")[0]
+        return frame
+
+    def horizontal_dividers(width, height, depth, count, thickness=0.1)
 
     # def window_generation(self):
     #     #- dividers on window horizontal and vertical
@@ -41,16 +48,6 @@ class SimpleWindowCreator():
     
     # test_onj = window_generation()
     # print("test:", test_onj)
-
-    # def create_windividers(self, width=2, height=2, horizontal=1, vertical=1):
-    #     # need user impirt for length width and height
-    #     #clear pervious objects in the scene to keep it clean 
-    #     dividers = []
-    #     if horizontal >= 0:
-    #         spacing = height // (horizontal + 1)
-    #         for r in range(1, horizontal + 1)
-    #             div = cmds.polyCube(width=width, height=2,)
-
 
 
     # def create_curtains(self, width, style, height):
