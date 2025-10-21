@@ -70,6 +70,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
 
-    dividers_test = vertical_dividers(width=3.0, height=2.0, 
-                                        depth=0.2, count=3)
-    print(f"Created vert dividers: {vertical_dividers}")
+    # dividers_test = vertical_dividers(width=3.0, height=2.0, 
+    #                                     depth=0.2, count=3)
+    # print(f"Created vert dividers: {vertical_dividers}")
