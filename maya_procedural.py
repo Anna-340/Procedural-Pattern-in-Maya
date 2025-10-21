@@ -46,7 +46,7 @@ class SimpleWindowCreator():
     # print(f"Created Window Frame: {glass_test}")
 
 
-    def horizontal_dividers(width, height, depth, count, thickness=0.1)
+    def horizontal_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for hor in range(count):
             div_y = ((hor + 1) * height / (count + 1) - (height / 2)) 
@@ -56,4 +56,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
+    dividers_test = horizontal_dividers(width=3.0, height=2.0, depth=0.2)
+    print(f"Created horz dividers: {horizontal_dividers}")
 
