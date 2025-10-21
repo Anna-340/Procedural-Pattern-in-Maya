@@ -47,26 +47,13 @@ class SimpleWindowCreator():
 
 
     def horizontal_dividers(width, height, depth, count, thickness=0.1)
-        pass
-    # def window_generation(self):
-    #     #- dividers on window horizontal and vertical
-    #     #- window size in general
-    #     #clear out scene before adding more objects
-    #     # get parameters from user from ui
-    #     frame = cmds.polyCube(width=2, height=2, 
-    #                           depth=1, name="test_frame")[0]
-    #     glass = cmds.polyCube(width=1, height=2, depth=1, name="test_glass")[0]
-    #     cmds.move(0, 0, 0.5, glass)
-    #     return [frame, glass]
-    
-    # test_onj = window_generation()
-    # print("test:", test_onj)
-
-
-    # def create_curtains(self, width, style, height):
-    #     # user input w/ buttons as to if curtauns are opened, straight or wavy
-    #     # size of curtains S to L
-    #     #  
-
-    # def create_flower_pot(self, numof_flower):
+        dividers = []
+        for hor in range(count):
+            div_y = ((hor + 1) * height / (count + 1) - (height / 2)) 
+            div = cmds.polyCube(w=width, h=thickness, 
+                                d=depth, name=f"horiz_div_{hor+1}")[0]
+            cmds.move(0, div_y, depth/2 - depth/2, div)
+            dividers.append(div)
+        return dividers
+ 
 
