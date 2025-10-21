@@ -32,6 +32,9 @@ class SimpleWindowCreator():
                               h=height + frame_thickness * 2,
                               d=depth, name="window_frame")[0]
         return frame
+    
+    windoframe_test = create_window_frame()
+    print(windoframe_test)
 
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
@@ -39,6 +42,9 @@ class SimpleWindowCreator():
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
     
+    glass_test = create_glass()
+    print(glass_test)
+
     def horizontal_dividers(width, height, depth, count, thickness=0.1)
         pass
     # def window_generation(self):
