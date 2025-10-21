@@ -38,9 +38,7 @@ class SimpleWindowCreator():
                               d=0.02, name="window_glass")[0]
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
-
-SimpleWindowCreator()
-pass
+    
     def horizontal_dividers(width, height, depth, count, thickness=0.1)
         pass
     # def window_generation(self):
