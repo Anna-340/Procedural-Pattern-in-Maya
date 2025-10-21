@@ -27,7 +27,7 @@ class SimpleWindowCreator():
         #create windowtab for user imputs
         pass
 
-    def create_window_frame(width, height, depth, frame_thickness=0.5):
+    def create_window_frame(width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness* 2,
                               h=height + frame_thickness* 2,
                               d=depth, name="window_frame")[0]
@@ -35,7 +35,7 @@ class SimpleWindowCreator():
 
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
-                              d=0.02, name="window_glass")[0]
+                              d=0.01, name="window_glass")[0]
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
     
