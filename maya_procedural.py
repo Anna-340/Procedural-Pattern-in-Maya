@@ -85,6 +85,5 @@ class SimpleWindowCreator():
                                      name="left_curtain")[0]
         cmds.move(-width/2 - curtain_width//2 - 0.05, 0, 
                   curtain_z_pos, left_curtain)
-    dividers_test = create_side_curtains(width=3.0, height=2.0, 
-                                        depth=0.2)
+    dividers_test = create_side_curtains(width=3.0, height=2.0, depth=0.2)
     print(f"Create left side curtain: {create_side_curtains}")
