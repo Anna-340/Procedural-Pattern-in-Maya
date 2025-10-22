@@ -73,3 +73,8 @@ class SimpleWindowCreator():
     # dividers_test = vertical_dividers(width=3.0, height=2.0, 
     #                                     depth=0.2, count=3)
     # print(f"Created vert dividers: {vertical_dividers}")
+
+    def create_side_curtains(width, height, frame_depth):
+        curtain_thickness = 0.1
+        curtain_width = max(0.4, width * 0.015)
+        
