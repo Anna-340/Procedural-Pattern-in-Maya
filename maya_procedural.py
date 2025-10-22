@@ -77,4 +77,11 @@ class SimpleWindowCreator():
     def create_side_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = max(0.4, width * 0.015)
-        
+        curtain_height = height * 1.3
+        curtain_z_pos = frame_depth//2 + curtain_thickness/2 + 0.05
+
+        left_curtain = cmds.polyCube(w=curtain_width, 
+                                     h=curtain_height, d=curtain_thickness, 
+                                     name="left_curtain")[0]
+        cmds.move(-width/2 - curtain_width//2 - 0.05, 0, 
+                  curtain_z_pos, left_curtain)
