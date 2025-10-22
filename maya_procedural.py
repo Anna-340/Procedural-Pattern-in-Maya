@@ -106,13 +106,16 @@ class SimpleWindowCreator():
                               h=height + frame_depth * 2,
                               d=frame_depth * 0.5, name="closed_curtain")[0]
         
-        cmds.move(0,0, frame_depth *0.75, curtain)
+        cmds.move(0, 0, frame_depth * 0.75, curtain)
 
-        rod_len = width * 0.7
+        rod_len = width * 1.2
         rod_radi = max(0.2, width * 0.007)
-        rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="simple_rod")[0]
+        rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
-        cmds.move(0, height/2 + 0.1, rod)
+        cmds.move(0, height/2 + 0.1, frame_depth/2, rod)
+
+        curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
+        return curtain_group
 
       
     
