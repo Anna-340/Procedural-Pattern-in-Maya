@@ -1,14 +1,11 @@
 #Three simple challenges or one complex one 
 #-trying to make the user interface more simplified and readable
 #-could add a slider for window contols like how big or small it is 
-#-color for flowers and possible shade for it
 
 #Custom Maya shelf button and icon & user interface
 
 #Number of intuative/paramters for asset generator (5 to 10) arguments
 #- dividers on window horizontal and vertical
-#- flower count in front pot
-#- color change of pot
 #- possible curtain changes?
 #- window size in general
 #- change the colors of the flowers in the pot
@@ -99,8 +96,6 @@ class SimpleWindowCreator():
         cmds.move(0, height/2 + 0.15, curtain_z_pos, rod)
 
         return [left_curtain, right_curtain, rod]
-
-    
     
     # dividers_test = create_side_curtains(width=3.0, height=2.0, 
     #                                      frame_depth=0.2)
@@ -122,10 +117,14 @@ class SimpleWindowCreator():
         cmds.move(width/2 + drape_width/2 + 0.05, 0, 
                   drape_z_pos, right_drape)
         
-        rod_len = width * 2 + 0.2
-        rod_radi = max(0.025, width * 0.08)
-        rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
+        rod_len = width * 0.7
+        rod_radi = max(0.2, width * 0.007)
+        rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="simple_rod")[0]
         cmds.rotate(0, 0, 90, rod)
-        cmds.move(0, height/2 + 0.15, drape_z_pos, rod)
+        cmds.move(0, height/2 + 0.1, drape_z_pos, rod)
 
         return [left_drape, right_drape, rod]
+    
+    dividers_test = create_simple_drapes(width=3.0, height=2.0, 
+                                         frame_depth=0.2)
+    print(f"Create left side curtain: {create_simple_drapes}")
