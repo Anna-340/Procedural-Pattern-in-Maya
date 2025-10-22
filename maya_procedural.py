@@ -86,9 +86,9 @@ class SimpleWindowCreator():
         cmds.move(-width/2 - curtain_width/2 - 0.05, 0, 
                   curtain_z_pos, left_curtain)
     
-        right_curtain = cmds.polyCube(w=curtain_width, 
-                                     h=curtain_height, d=curtain_thickness, 
-                                     name="right_curtain")[0]
+        right_curtain = cmds.polyCube(w=curtain_width, h=curtain_height, 
+                                      d=curtain_thickness, 
+                                      name="right_curtain")[0]
         cmds.move(width/2 + curtain_width/2 + 0.05, 0, 
                   curtain_z_pos, right_curtain)
         
@@ -117,9 +117,8 @@ class SimpleWindowCreator():
         cmds.move(-width/2 - drape_width/2 - 0.05, 0, 
                   drape_z_pos, left_drape)
     
-        right_drape = cmds.polyCube(w=drape_width, 
-                                     h=drape_height, d=drape_thickness, 
-                                     name="right_drape")[0]
+        right_drape = cmds.polyCube(w=drape_width, h=drape_height, 
+                                    d=drape_thickness, name="right_drape")[0]
         cmds.move(width/2 + drape_width/2 + 0.05, 0, 
                   drape_z_pos, right_drape)
         
