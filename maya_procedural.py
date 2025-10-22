@@ -90,7 +90,7 @@ class SimpleWindowCreator():
                   curtain_z_pos, right_curtain)
         
         rod_len = width + curtain_width * 2 + 0.2
-        rod_radi = max(0.025, width * 0.008)
+        rod_radi = max(0.25, width * 0.008)
         rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
         cmds.move(0, height/2 + 0.15, curtain_z_pos, rod)
@@ -119,6 +119,6 @@ class SimpleWindowCreator():
 
       
     
-    # dividers_test = create_closed_curtians(width=3.0, height=2.0, 
-    #                                      frame_depth=0.2)
-    # print(f"Create left side curtain: {create_closed_curtians}")
+    dividers_test = create_closed_curtians(width=3.0, height=2.0, 
+                                         frame_depth=0.2)
+    print(f"Create left side curtain: {create_closed_curtians}")
