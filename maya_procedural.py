@@ -102,6 +102,32 @@ class SimpleWindowCreator():
 
     
     
-    dividers_test = create_side_curtains(width=3.0, height=2.0, 
-                                         frame_depth=0.2)
-    print(f"Create left side curtain: {create_side_curtains}")
+    # dividers_test = create_side_curtains(width=3.0, height=2.0, 
+    #                                      frame_depth=0.2)
+    # print(f"Create left side curtain: {create_side_curtains}")
+
+    def create_simple_drapes(width, height, frame_depth):
+        drape_thickness = 0.08
+        drape_width = max(0.35, width * 0.12)
+        drape_height = height * 1.3
+        drape_z_pos = frame_depth/2 + drape_thickness/2 + 0.03
+
+        left_curtain = cmds.polyCube(w=curtain_width, 
+                                     h=curtain_height, d=curtain_thickness, 
+                                     name="left_curtain")[0]
+        cmds.move(-width/2 - curtain_width/2 - 0.05, 0, 
+                  curtain_z_pos, left_curtain)
+    
+        right_curtain = cmds.polyCube(w=curtain_width, 
+                                     h=curtain_height, d=curtain_thickness, 
+                                     name="right_curtain")[0]
+        cmds.move(width/2 + curtain_width/2 + 0.05, 0, 
+                  curtain_z_pos, right_curtain)
+        
+        rod_len = width = curtain_width * 2 + 0.2
+        rod_radi = max(0.025, width * 0.08)
+        rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
+        cmds.rotate(0, 0, 90, rod)
+        cmds.move(0, height/2 + 0.15, curtain_z_pos, rod)
+
+        return [left_curtain, right_curtain, rod]
