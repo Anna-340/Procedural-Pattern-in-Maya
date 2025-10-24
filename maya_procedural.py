@@ -19,6 +19,13 @@ import random
 
 class SimpleWindowCreator():
 
+    def assign_color(objects, color):
+        if not isinstance(objects, list):
+            objects = [objects]
+
+        shader_name = f"{color}_shader"
+        shading_group = f"{color}_SG"
+
     def ui_interface():
         #set up user inputt first then call other commands
         #create windowtab for user imputs
@@ -119,6 +126,6 @@ class SimpleWindowCreator():
 
       
     
-    dividers_test = create_closed_curtians(width=3.0, height=2.0, 
-                                         frame_depth=0.2)
-    print(f"Create left side curtain: {create_closed_curtians}")
+    # dividers_test = create_closed_curtians(width=3.0, height=2.0, 
+    #                                      frame_depth=0.2)
+    # print(f"Create left side curtain: {create_closed_curtians}")
