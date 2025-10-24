@@ -76,7 +76,7 @@ class SimpleWindowCreator():
     def horizontal_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for hor in range(count):
-            div_y = ((hor + 1) * height / (count + 1) - (height / 2)) 
+            div_y = ((hor + 1) * height / (count + 1) - (height / 2))
             div = cmds.polyCube(w=width, h=thickness, 
                                 d=depth, name=f"horiz_div_{hor+1}")[0]
             cmds.move(0, div_y, depth/2 - depth/2, div)
@@ -132,17 +132,22 @@ class SimpleWindowCreator():
     # print(f"Create left side curtain: {create_side_curtains}")
 
     def create_closed_curtians(width, height, frame_depth):
-        curtain = cmds.polyCube(w=width + frame_depth * 2,
-                              h=height + frame_depth * 2,
-                              d=frame_depth * 0.5, name="closed_curtain")[0]
+        curtain_thickness = 0.1
+        curtain_width = width * 1.2
+        curtain_height = height * 1.1
         
-        cmds.move(0, 0, frame_depth * 0.75, curtain)
+        curtain = cmds.polyCube(w=curtain_width,
+                              h=curtain_height,
+                              d=curtain_thickness, name="closed_curtain")[0]
+        
+        cmds.move(0, 0, frame_depth/2 + curtain_thickness/2 + 0.05, curtain)
 
-        rod_len = width * 1.2
+        rod_len = curtain_width * 1.1
         rod_radi = max(0.2, width * 0.007)
         rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
-        cmds.move(0, height/2 + 0.1, frame_depth/2, rod)
+        cmds.move(0, height/2 + 0.1, frame_depth/2 + curtain_thickness + 0.05,
+        rod)
 
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
