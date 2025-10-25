@@ -59,6 +59,7 @@ class SimpleWindowCreator():
         frame = cmds.polyCube(w=width + frame_thickness * 2,
                               h=height + frame_thickness * 2,
                               d=depth, name="window_frame")[0]
+        cmds.move(0, 0, -depth/2, frame)
         return frame
 
     @staticmethod
@@ -75,7 +76,7 @@ class SimpleWindowCreator():
             div_y = ((hor + 1) * height / (count + 1) - (height / 2))
             div = cmds.polyCube(w=width, h=thickness, 
                                 d=depth, name=f"horiz_div_{hor+1}")[0]
-            cmds.move(0, div_y, depth/2 - depth/2, div)
+            cmds.move(0, div_y, 0, div)
             dividers.append(div)
         return dividers
  
@@ -86,7 +87,7 @@ class SimpleWindowCreator():
             div_x = ((ver + 1) * width / (count + 1) - (width / 2)) 
             div = cmds.polyCube(w=thickness, h=height, 
                                 d=depth, name=f"vert_div_{ver+1}")[0]
-            cmds.move(div_x, 0, depth/2 - depth/2, div)
+            cmds.move(div_x, 0, 0, div)
             dividers.append(div)
         return dividers
 
