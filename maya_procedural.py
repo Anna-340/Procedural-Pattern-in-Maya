@@ -83,10 +83,10 @@ class SimpleWindowCreator():
     def vertical_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for ver in range(count):
-            div_x = ((ver + 1) * height / (count + 1) - (height / 2)) 
-            div = cmds.polyCube(w=width, h=thickness, 
+            div_x = ((ver + 1) * width / (count + 1) - (width / 2)) 
+            div = cmds.polyCube(w=thickness, h=height, 
                                 d=depth, name=f"vert_div_{ver+1}")[0]
-            cmds.move(0, div_x, depth/2 - depth/2, div)
+            cmds.move(div_x, 0, depth/2 - depth/2, div)
             dividers.append(div)
         return dividers
 
@@ -102,7 +102,7 @@ class SimpleWindowCreator():
 
         if ver_div_count > 0:
             ver_dividers = SimpleWindowCreator.vertical_dividers(width, 
-                                height, depth, hor_div_count, thickness)
+                                height, depth, ver_div_count, thickness)
             
             dividers.extend(ver_dividers)
 
