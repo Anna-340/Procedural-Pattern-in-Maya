@@ -199,9 +199,16 @@ class SimpleWindowCreator():
             
             for divider in divider_children:
                 SimpleWindowCreator.assign_color(divider, 'Brown')
+
         if window_data['curtains']:
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
                                                       children=True) or []
-                
+                for child in curtain_children:
+                    if 'curtain' in child.lower():
+                        SimpleWindowCreator.assign_color(child, 'Red')
+                    elif 'rod' in child.lower():
+                        SimpleWindowCreator.assign_color(child, 'Black')
+        print("Window Created!")
+        return window_data
 
 
