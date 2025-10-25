@@ -219,12 +219,13 @@ class SimpleWindowCreator():
 
         if window_data['curtains'] and cmds.objExists(window_data['curtains']):
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
-                                                      children=True) or []
+                                                      children=True, 
+                                                      fullPath=True) or []
                 for child in curtain_children:
                     if 'curtain' in child.lower():
                         SimpleWindowCreator.assign_color(child, 'Red')
                     elif 'rod' in child.lower():
-                        SimpleWindowCreator.assign_color(child, 'Black')
+                        SimpleWindowCreator.assign_color(child, 'Brown')
 
         print("Warm Window Created!")
         return window_data
@@ -248,14 +249,16 @@ class SimpleWindowCreator():
             'dividers_group']):
 
             divider_children = cmds.listRelatives(
-                window_data['dividers_group'], children=True) or []
+                window_data['dividers_group'], children=True, 
+                fullPath=True) or []
             
             for divider in divider_children:
                 SimpleWindowCreator.assign_color(divider, 'Green')
 
         if window_data['curtains'] and cmds.objExists(window_data['curtains']):
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
-                                                      children=True) or []
+                                                      children=True, 
+                                                      fullPath=True) or []
                 for child in curtain_children:
                     if 'curtain' in child.lower():
                         SimpleWindowCreator.assign_color(child, 'Dark_blue')
