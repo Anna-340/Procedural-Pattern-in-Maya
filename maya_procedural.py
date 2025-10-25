@@ -76,7 +76,7 @@ class SimpleWindowCreator():
             div_y = ((hor + 1) * height / (count + 1) - (height / 2))
             div = cmds.polyCube(w=width, h=thickness, 
                                 d=depth, name=f"horiz_div_{hor+1}")[0]
-            cmds.move(0, div_y, 0, div)
+            cmds.move(0, div_y, 0.085, div)
             dividers.append(div)
         return dividers
  
@@ -87,7 +87,7 @@ class SimpleWindowCreator():
             div_x = ((ver + 1) * width / (count + 1) - (width / 2)) 
             div = cmds.polyCube(w=thickness, h=height, 
                                 d=depth, name=f"vert_div_{ver+1}")[0]
-            cmds.move(div_x, 0, 0, div)
+            cmds.move(div_x, 0, 0.085, div)
             dividers.append(div)
         return dividers
 
@@ -239,7 +239,7 @@ class SimpleWindowCreator():
         cmds.move(3, 0, 0, window_data['group'])
 
         if cmds.objExists(window_data['frame']):
-            SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
+            SimpleWindowCreator.assign_color(window_data['frame'], 'Green')
 
         if cmds.objExists(window_data['glass']):
             SimpleWindowCreator.assign_color(window_data['glass'], 'Blue')
@@ -251,7 +251,7 @@ class SimpleWindowCreator():
                 window_data['dividers_group'], children=True) or []
             
             for divider in divider_children:
-                SimpleWindowCreator.assign_color(divider, 'Gray')
+                SimpleWindowCreator.assign_color(divider, 'Green')
 
         if window_data['curtains'] and cmds.objExists(window_data['curtains']):
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
