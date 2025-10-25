@@ -66,7 +66,7 @@ class SimpleWindowCreator():
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
                               d=0.01, name="window_glass")[0]
-        cmds.move(0, 0, depth/2 - 0.05, glass)
+        cmds.move(0, 0, depth/2, glass)
         return glass
 
     @staticmethod
@@ -118,7 +118,7 @@ class SimpleWindowCreator():
         curtain_thickness = 0.1
         curtain_width = max(0.4, width * 0.15)
         curtain_height = height * 1.3
-        curtain_z_pos = frame_depth/2 + curtain_thickness/2 + 0.05
+        curtain_z_pos = frame_depth/2 + curtain_thickness/2 + 0.1
 
         left_curtain = cmds.polyCube(w=curtain_width, 
                                      h=curtain_height, d=curtain_thickness, 
@@ -153,7 +153,7 @@ class SimpleWindowCreator():
                               h=curtain_height,
                               d=curtain_thickness, name="closed_curtain")[0]
         
-        cmds.move(0, 0, frame_depth/2 + curtain_thickness/2 + 0.05, curtain)
+        cmds.move(0, 0, frame_depth + curtain_thickness/2 + 0.1, curtain)
 
         rod_len = curtain_width * 1.1
         rod_radi = max(0.2, width * 0.007)
