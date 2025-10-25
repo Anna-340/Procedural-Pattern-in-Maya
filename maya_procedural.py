@@ -209,19 +209,19 @@ class SimpleWindowCreator():
                     elif 'rod' in child.lower():
                         SimpleWindowCreator.assign_color(child, 'Black')
 
-        print("Window Created!")
+        print("Warm Window Created!")
         return window_data
 
     def create_coolcol_window():
 
         print("Cool Window Generated")
-        window_data = SimpleWindowCreator.create_complete_window(width=2.0, 
-        height=1.5, curtain_type='open', hor_div_count=2, ver_div_count=3)
+        window_data = SimpleWindowCreator.create_complete_window(width=3.5, 
+        height=2.5, curtain_type='closed', hor_div_count=3, ver_div_count=0)
         
-        cmds.move(-3, 0, 0, window_data['group'])
+        cmds.move(3, 0, 0, window_data['group'])
 
-        SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
-        SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
+        SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
+        SimpleWindowCreator.assign_color(window_data['glass'], 'Blue')
         
         if window_data['dividers_group']:
 
@@ -229,18 +229,22 @@ class SimpleWindowCreator():
                 window_data['dividers_group'], children=True) or []
             
             for divider in divider_children:
-                SimpleWindowCreator.assign_color(divider, 'Brown')
+                SimpleWindowCreator.assign_color(divider, 'Gray')
 
         if window_data['curtains']:
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
                                                       children=True) or []
                 for child in curtain_children:
                     if 'curtain' in child.lower():
-                        SimpleWindowCreator.assign_color(child, 'Red')
+                        SimpleWindowCreator.assign_color(child, 'Dark_blue')
                     elif 'rod' in child.lower():
                         SimpleWindowCreator.assign_color(child, 'Black')
 
-        print("Window Created!")
+        print("Cool Window Created!")
         return window_data
 
+    if __name__ == "__main__":
+        print("Created Warm and Cool Windows!")
 
+        warm_window = create_warmcol_window()
+        cool_window = create_coolcol_window()
