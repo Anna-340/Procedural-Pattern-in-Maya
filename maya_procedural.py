@@ -115,7 +115,7 @@ class SimpleWindowCreator():
     @staticmethod
     def create_side_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
-        curtain_width = max(0.4, width * 0.015)
+        curtain_width = max(0.4, width * 0.15)
         curtain_height = height * 1.3
         curtain_z_pos = frame_depth/2 + curtain_thickness/2 + 0.05
 
@@ -137,10 +137,13 @@ class SimpleWindowCreator():
         cmds.rotate(0, 0, 90, rod)
         cmds.move(0, height/2 + 0.15, curtain_z_pos, rod)
 
-        return [left_curtain, right_curtain, rod]
+        curtains_group = cmds.group([left_curtain, right_curtain, rod],
+                                    name="side_curtains_grp")
+
+        return curtains_group
     
     @staticmethod
-    def create_closed_curtians(width, height, frame_depth):
+    def create_closed_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = width * 1.2
         curtain_height = height * 1.1
@@ -176,7 +179,7 @@ class SimpleWindowCreator():
             curtains = SimpleWindowCreator.create_side_curtains(width, height, 
                                                                 depth)
         elif curtain_type == 'closed':
-            curtains = SimpleWindowCreator.create_closed_curtians(width, 
+            curtains = SimpleWindowCreator.create_closed_curtains(width, 
                                                                 height, depth)
         window_parts = [frame, glass]
         if dividers_group:
