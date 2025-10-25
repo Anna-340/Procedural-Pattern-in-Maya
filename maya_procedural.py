@@ -179,6 +179,12 @@ class SimpleWindowCreator():
 
         dividers_group = SimpleWindowCreator.create_dividers_group(width, 
                                 height, depth, hor_div_count, ver_div_count)
+        
+        curtains = None
+        if curtain_type == 'open':
+            curtains = SimpleWindowCreator.create_side_curtains(width, height, 
+                                                                depth)
+        elif curtain_type = 'closed':
 
       
     
