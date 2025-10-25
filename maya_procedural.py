@@ -202,8 +202,11 @@ class SimpleWindowCreator():
         
         cmds.move(-3, 0, 0, window_data['group'])
 
-        SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
-        SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
+        if cmds.objExists(window_data['frame']):
+            SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
+        
+        if cmds.objExists(window_data['glass']):
+            SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
         
         if window_data['dividers_group'] and cmds.objExists(window_data[
             'dividers_group']):
@@ -235,8 +238,11 @@ class SimpleWindowCreator():
         
         cmds.move(3, 0, 0, window_data['group'])
 
-        SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
-        SimpleWindowCreator.assign_color(window_data['glass'], 'Blue')
+        if cmds.objExists(window_data)['frame']):
+            SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
+
+        if cmds.objExists(window_data['glass']):
+            SimpleWindowCreator.assign_color(window_data['glass'], 'Blue')
         
         if window_data['dividers_group'] and cmds.objExists(window_data[
             'dividers_group']):
