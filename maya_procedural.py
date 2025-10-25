@@ -171,6 +171,8 @@ class SimpleWindowCreator():
 
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
+    
+    def create_complete_window(width=3.0, height=2.0, depth=0.2, hor_div_count=1, ver_div_count=1, curtain)
 
       
     
