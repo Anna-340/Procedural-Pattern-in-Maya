@@ -46,8 +46,8 @@ class SimpleWindowCreator():
             cmds.setAttr(f'{shader}.color', rgb[0], rgb[1], rgb[2], 
                          type='double3')
 
-            for obj in objects:
-                cmds.sets(obj, edit=True, forceElement=shading_group)
+        for obj in objects:
+            cmds.sets(obj, edit=True, forceElement=shading_group)
     @staticmethod
     def ui_interface():
         #set up user inputt first then call other commands
