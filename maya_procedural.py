@@ -193,6 +193,9 @@ class SimpleWindowCreator():
         if curtains:
             window_parts.append(curtains)
 
+        window_group = cmds.group(window_parts, name=f'window_{curtain_type}')
+
+        return
       
     
     # dividers_test = create_closed_curtians(width=3.0, height=2.0, 
