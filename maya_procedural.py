@@ -176,10 +176,17 @@ class SimpleWindowCreator():
         if curtains:
             window_parts.append(curtains)
 
-        window_group = cmds.group(window_parts, name=f'window_{curtain_type}')
+        window_group = cmds.group(window_parts, name=f"window_{curtain_type}")
 
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
       
       def create_warmcol_curtains():
+
+        print("Warm Window Generated")
+        window_data = SimpleWindowCreator.create_complete_window(width=2.0, 
+            height=1.5, curtain_type='open', hor_div_count=2, ver_div_count=3)
+        
+        cmds.move(-3, 0, 0, window_data['group'])
+
         
