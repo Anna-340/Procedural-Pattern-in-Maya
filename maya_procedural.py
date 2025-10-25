@@ -8,7 +8,6 @@
 #- dividers on window horizontal and vertical
 #- possible curtain changes?
 #- window size in general
-#- change the colors of the flowers in the pot
 
 #Challenge features
 #- Extra research for UI interface
@@ -172,7 +171,9 @@ class SimpleWindowCreator():
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
     
-    def create_complete_window(width=3.0, height=2.0, depth=0.2, hor_div_count=1, ver_div_count=1, curtain)
+    def create_complete_window(width=3.0, height=2.0, depth=0.2, 
+                               hor_div_count=1, ver_div_count=1, 
+                               curtain_type='open'):
 
       
     
