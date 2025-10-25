@@ -106,7 +106,20 @@ class SimpleWindowCreator():
         if hor_div_count > 0:
             hor_dividers = SimpleWindowCreator.horizontal_dividers(width, 
                                 height, depth, hor_div_count, thickness)
+            
             dividers.extend(hor_dividers)
+
+        if ver_div_count > 0:
+            ver_dividers = SimpleWindowCreator.vertical_dividers(width, 
+                                height, depth, hor_div_count, thickness)
+            
+            dividers.extend(ver_dividers)
+
+        if dividers:
+            dividers_group = cmds.group(dividers, name="window_dividers_grp")
+            return dividers_group
+        else:
+            return None
 
     def create_side_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
