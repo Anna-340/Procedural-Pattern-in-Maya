@@ -238,7 +238,7 @@ class SimpleWindowCreator():
         
         cmds.move(3, 0, 0, window_data['group'])
 
-        if cmds.objExists(window_data)['frame']):
+        if cmds.objExists(window_data['frame']):
             SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
 
         if cmds.objExists(window_data['glass']):
