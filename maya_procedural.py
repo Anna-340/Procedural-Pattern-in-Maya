@@ -208,6 +208,7 @@ class SimpleWindowCreator():
                         SimpleWindowCreator.assign_color(child, 'Red')
                     elif 'rod' in child.lower():
                         SimpleWindowCreator.assign_color(child, 'Black')
+                        
         print("Window Created!")
         return window_data
 
