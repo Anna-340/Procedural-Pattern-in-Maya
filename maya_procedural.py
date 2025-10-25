@@ -181,3 +181,5 @@ class SimpleWindowCreator():
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
       
+      def create_warmcol_curtains():
+        
