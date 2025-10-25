@@ -181,9 +181,40 @@ class SimpleWindowCreator():
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
       
-    def create_warmcol_curtains():
+    def create_warmcol_window():
 
         print("Warm Window Generated")
+        window_data = SimpleWindowCreator.create_complete_window(width=2.0, 
+        height=1.5, curtain_type='open', hor_div_count=2, ver_div_count=3)
+        
+        cmds.move(-3, 0, 0, window_data['group'])
+
+        SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
+        SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
+        
+        if window_data['dividers_group']:
+
+            divider_children = cmds.listRelatives(
+                window_data['dividers_group'], children=True) or []
+            
+            for divider in divider_children:
+                SimpleWindowCreator.assign_color(divider, 'Brown')
+
+        if window_data['curtains']:
+                curtain_children = cmds.listRelatives(window_data['curtains'], 
+                                                      children=True) or []
+                for child in curtain_children:
+                    if 'curtain' in child.lower():
+                        SimpleWindowCreator.assign_color(child, 'Red')
+                    elif 'rod' in child.lower():
+                        SimpleWindowCreator.assign_color(child, 'Black')
+
+        print("Window Created!")
+        return window_data
+
+    def create_coolcol_window():
+
+        print("Cool Window Generated")
         window_data = SimpleWindowCreator.create_complete_window(width=2.0, 
         height=1.5, curtain_type='open', hor_div_count=2, ver_div_count=3)
         
