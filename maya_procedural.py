@@ -174,6 +174,11 @@ class SimpleWindowCreator():
     def create_complete_window(width=3.0, height=2.0, depth=0.2, 
                                hor_div_count=1, ver_div_count=1, 
                                curtain_type='open'):
+        frame = SimpleWindowCreator.create_window_frame(width, height, depth)
+        glass = SimpleWindowCreator.create_glass(width, height, depth)
+
+        dividers_group = SimpleWindowCreator.create_dividers_group(width, 
+                                height, depth, hor_div_count, ver_div_count)
 
       
     
