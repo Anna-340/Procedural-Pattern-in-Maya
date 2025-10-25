@@ -189,4 +189,19 @@ class SimpleWindowCreator():
         
         cmds.move(-3, 0, 0, window_data['group'])
 
+        SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
+        SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
         
+        if window_data['dividers_group']:
+
+            divider_children = cmds.listRelatives(
+                window_data['dividers_group'], children=True) or []
+            
+            for divider in divider_children:
+                SimpleWindowCreator.assign_color(divider, 'Brown')
+        if window_data['curtains']:
+                curtain_children = cmds.listRelatives(window_data['curtains'], 
+                                                      children=True) or []
+                
+
+
