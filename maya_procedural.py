@@ -204,7 +204,8 @@ class SimpleWindowCreator():
         SimpleWindowCreator.assign_color(window_data['frame'], 'Brown')
         SimpleWindowCreator.assign_color(window_data['glass'], 'Light_blue')
         
-        if window_data['dividers_group']:
+        if window_data['dividers_group'] and cmds.objExists(window_data[
+            'dividers_group']):
 
             divider_children = cmds.listRelatives(
                 window_data['dividers_group'], children=True) or []
@@ -212,7 +213,7 @@ class SimpleWindowCreator():
             for divider in divider_children:
                 SimpleWindowCreator.assign_color(divider, 'Brown')
 
-        if window_data['curtains']:
+        if window_data['curtains'] and cmds.objExists(window_data['curtains']):
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
                                                       children=True) or []
                 for child in curtain_children:
@@ -236,7 +237,8 @@ class SimpleWindowCreator():
         SimpleWindowCreator.assign_color(window_data['frame'], 'Gray')
         SimpleWindowCreator.assign_color(window_data['glass'], 'Blue')
         
-        if window_data['dividers_group']:
+        if window_data['dividers_group'] and cmds.objExists(window_data[
+            'dividers_group']):
 
             divider_children = cmds.listRelatives(
                 window_data['dividers_group'], children=True) or []
@@ -244,7 +246,7 @@ class SimpleWindowCreator():
             for divider in divider_children:
                 SimpleWindowCreator.assign_color(divider, 'Gray')
 
-        if window_data['curtains']:
+        if window_data['curtains'] and cmds.objExists(window_data['curtains']):
                 curtain_children = cmds.listRelatives(window_data['curtains'], 
                                                       children=True) or []
                 for child in curtain_children:
