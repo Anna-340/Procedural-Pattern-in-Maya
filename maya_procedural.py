@@ -26,7 +26,7 @@ class SimpleWindowCreator():
         shader_name = f"{color}_shader"
         shading_group = f"{color}_SG"
 
-        if not cmds.onjExists(shader_name):
+        if not cmds.objExists(shader_name):
             shader = cmds.shadingNode('lambert', asShader=True, 
                                       name=shader_name)
             shading_group = cmds.sets(renderable=True, noSurfaceShader=True,
