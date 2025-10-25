@@ -64,13 +64,6 @@ class SimpleWindowCreator():
                               d=0.01, name="window_glass")[0]
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
-    
-    # window_frame_test = create_window_frame(width=3.0, height=2.0, depth=0.2)
-    # print(f"Created Window Frame: {window_frame_test}")
-
-    # glass_test = create_glass(width=2.0, height=1.0, depth=0.2)
-    # print(f"Created Window Frame: {glass_test}")
-
 
     def horizontal_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
@@ -82,10 +75,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
-    # dividers_test = horizontal_dividers(width=3.0, height=2.0, 
-    #                                     depth=0.2, count=3)
-    # print(f"Created horz dividers: {horizontal_dividers}")
-
     def vertical_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for ver in range(count):
@@ -96,9 +85,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
 
-    # dividers_test = vertical_dividers(width=3.0, height=2.0, 
-    #                                     depth=0.2, count=3)
-    # print(f"Created vert dividers: {vertical_dividers}")
     def create_dividers_group(width, height, depth, hor_div_count=0, 
                               ver_div_count=0, thickness=0.1):
         dividers = []
@@ -146,9 +132,6 @@ class SimpleWindowCreator():
 
         return [left_curtain, right_curtain, rod]
     
-    # dividers_test = create_side_curtains(width=3.0, height=2.0, 
-    #                                      frame_depth=0.2)
-    # print(f"Create left side curtain: {create_side_curtains}")
 
     def create_closed_curtians(width, height, frame_depth):
         curtain_thickness = 0.1
@@ -198,7 +181,3 @@ class SimpleWindowCreator():
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
       
-    
-    # dividers_test = create_closed_curtians(width=3.0, height=2.0, 
-    #                                      frame_depth=0.2)
-    # print(f"Create left side curtain: {create_closed_curtians}")
