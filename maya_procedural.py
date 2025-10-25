@@ -48,24 +48,27 @@ class SimpleWindowCreator():
 
             for obj in objects:
                 cmds.sets(obj, edit=True, forceElement=shading_group)
-
+    @staticmethod
     def ui_interface():
         #set up user inputt first then call other commands
         #create windowtab for user imputs
         pass
 
+    @staticmethod
     def create_window_frame(width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness * 2,
                               h=height + frame_thickness * 2,
                               d=depth, name="window_frame")[0]
         return frame
 
+    @staticmethod
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
                               d=0.01, name="window_glass")[0]
         cmds.move(0, 0, depth/2 - 0.05, glass)
         return glass
 
+    @staticmethod
     def horizontal_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for hor in range(count):
@@ -76,6 +79,7 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
+    @staticmethod
     def vertical_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for ver in range(count):
@@ -86,6 +90,7 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
 
+    @staticmethod
     def create_dividers_group(width, height, depth, hor_div_count=0, 
                               ver_div_count=0, thickness=0.1):
         dividers = []
@@ -107,6 +112,7 @@ class SimpleWindowCreator():
         else:
             return None
 
+    @staticmethod
     def create_side_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = max(0.4, width * 0.015)
@@ -133,7 +139,7 @@ class SimpleWindowCreator():
 
         return [left_curtain, right_curtain, rod]
     
-
+    @staticmethod
     def create_closed_curtians(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = width * 1.2
@@ -155,6 +161,7 @@ class SimpleWindowCreator():
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
     
+    @staticmethod
     def create_complete_window(width=3.0, height=2.0, depth=0.2, 
                                hor_div_count=1, ver_div_count=1, 
                                curtain_type='open'):
@@ -181,7 +188,8 @@ class SimpleWindowCreator():
 
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
-      
+
+    @staticmethod
     def create_warmcol_window():
 
         print("Warm Window Generated")
@@ -213,6 +221,7 @@ class SimpleWindowCreator():
         print("Warm Window Created!")
         return window_data
 
+    @staticmethod
     def create_coolcol_window():
 
         print("Cool Window Generated")
