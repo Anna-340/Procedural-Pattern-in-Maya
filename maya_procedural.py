@@ -256,8 +256,8 @@ class SimpleWindowCreator():
         print("Cool Window Created!")
         return window_data
 
-    if __name__ == "__main__":
-        print("Created Warm and Cool Windows!")
+if __name__ == "__main__":
+    print("Created Warm and Cool Windows!")
 
-        warm_window = create_warmcol_window()
-        cool_window = create_coolcol_window()
+    warm_window = SimpleWindowCreator.create_warmcol_window()
+    cool_window = SimpleWindowCreator.create_coolcol_window()
