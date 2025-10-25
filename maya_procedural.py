@@ -18,6 +18,7 @@ import random
 
 class SimpleWindowCreator():
 
+    @staticmethod
     def assign_color(objects, color):
         if not isinstance(objects, list):
             objects = [objects]
