@@ -184,7 +184,14 @@ class SimpleWindowCreator():
         if curtain_type == 'open':
             curtains = SimpleWindowCreator.create_side_curtains(width, height, 
                                                                 depth)
-        elif curtain_type = 'closed':
+        elif curtain_type == 'closed':
+            curtains = SimpleWindowCreator.create_closed_curtians(width, 
+                                                                height, depth)
+        window_parts = [frame, glass]
+        if dividers_group:
+            window_parts.append(dividers_group)
+        if curtains:
+            window_parts.append(curtains)
 
       
     
