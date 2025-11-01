@@ -26,7 +26,7 @@ class SimpleWindowCreator():
         self.ui_interface()
 
     def ui_interface():
-
+        layout = QtWidgets.QVBoxLayout(self)
 
     def assign_color(objects, color):
         if not isinstance(objects, list):
