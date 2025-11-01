@@ -107,7 +107,11 @@ class SimpleWindowCreator():
         self.clear_btn.clicked.connect(self.clear_scene)
         layout.addWidget(self.clear_btn)
 
-        #
+        #Colors
+        self.window_color = (0.8, 0.8, 0.9)
+        self.divider_color = (0.3, 0.3, 0.3)
+        self.curtain_color = (0.7, 0.2, 0.2)
+        self.rod_color = (0.4, 0.2, 0.1)
 
 
 
