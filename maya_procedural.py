@@ -13,7 +13,7 @@
 #- Extra research for UI interface
 
 import maya.cmds as cmds
-import random
+from PySide2 import QtWidgets, QtCore, QtGui
 
 
 class SimpleWindowCreator():
