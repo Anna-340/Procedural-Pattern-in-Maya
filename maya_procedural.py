@@ -101,7 +101,10 @@ class SimpleWindowCreator():
         #window generation button
         self.generate_btn = QtWidgets.QPushButton("Generate Window")
         self.generate_btn.clicked.connect(self.create_complete_window_ui)
+        layout.addWidget(self.generate_btn)
 
+        self.clear_btn = QtWidgets.QPushButton("Clear Scene")
+        self.clear_btn.clicked
 
 
 
@@ -277,6 +280,9 @@ class SimpleWindowCreator():
                 'dividers_group': dividers_group, 'curtains': curtains}
 
     def create_complete_window_ui():
+        pass
+
+    def clear_scene(self):
         pass
 
     def create_warmcol_window():
