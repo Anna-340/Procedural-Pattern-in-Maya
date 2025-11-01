@@ -74,6 +74,17 @@ class SimpleWindowCreator():
                                               self.pick_color("curtain"))
         color_layout.addWidget(self.curtain_color_btn)
 
+        self.rod_color_btn = QtWidgets.QPushButton("Rod Color")
+        self.rod_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("rod"))
+        color_layout.addWidget(self.rod_color_btn)
+
+        layout.addLayout(color_layout)
+
+        #curtain Types
+
+        
+
 
 
 
