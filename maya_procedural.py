@@ -25,8 +25,15 @@ class SimpleWindowCreator():
         self.window_group = None
         self.ui_interface()
 
-    def ui_interface():
+    def ui_interface(self):
         layout = QtWidgets.QVBoxLayout(self)
+
+        size_layout = QtWidgets.QHBoxLayout()
+        size_layout.addWidget(QtWidgets.QLabel("Width:"))
+        self.width_input = QtWidgets.QDoubleSpinBox()
+        self.width_input.setValue(3.0)
+        self.width_input.setRange(1.0, 10.0)
+        size_layout.addWidget(self.width_input)
 
     def assign_color(objects, color):
         if not isinstance(objects, list):
