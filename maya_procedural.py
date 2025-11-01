@@ -21,6 +21,9 @@ class SimpleWindowCreator():
     def __init__(self):
         super(SimpleWindowCreator, self).__init__()
         self.setWindowTitle("Window Generator")
+        self.setFixedSize(300, 500)
+        self.window_group = None
+        self.ui_interface()
 
     def ui_interface():
 
