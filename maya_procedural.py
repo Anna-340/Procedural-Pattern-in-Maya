@@ -98,6 +98,10 @@ class SimpleWindowCreator():
 
         layout.addLayout(curtain_layout)
 
+        #window generation button
+        self.generate_btn = QtWidgets.QPushButton("Generate Window")
+        self.generate_btn.clicked.connect(self.create_complete_window_ui)
+
 
 
 
@@ -272,6 +276,8 @@ class SimpleWindowCreator():
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
 
+    def create_complete_window_ui():
+        pass
 
     def create_warmcol_window():
 
