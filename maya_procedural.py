@@ -18,6 +18,12 @@ from PySide2 import QtWidgets, QtCore, QtGui
 
 class SimpleWindowCreator():
 
+    def __init__(self):
+        super(SimpleWindowCreator, self).__init__()
+        self.setWindowTitle("Window Generator")
+
+    def ui_interface():
+
 
     def assign_color(objects, color):
         if not isinstance(objects, list):
@@ -48,12 +54,6 @@ class SimpleWindowCreator():
 
         for obj in objects:
             cmds.sets(obj, edit=True, forceElement=shading_group)
-
-    def ui_interface():
-        #set up user inputt first then call other commands
-        #create windowtab for user imputs
-        pass
-
 
     def create_window_frame(width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness * 2,
