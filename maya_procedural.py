@@ -104,7 +104,10 @@ class SimpleWindowCreator():
         layout.addWidget(self.generate_btn)
 
         self.clear_btn = QtWidgets.QPushButton("Clear Scene")
-        self.clear_btn.clicked
+        self.clear_btn.clicked.connect(self.clear_scene)
+        layout.addWidget(self.clear_btn)
+
+        #
 
 
 
