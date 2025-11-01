@@ -35,6 +35,13 @@ class SimpleWindowCreator():
         self.width_input.setRange(1.0, 10.0)
         size_layout.addWidget(self.width_input)
 
+        size_layout.addWidget(QtWidgets.QLabel("Height:"))
+        self.height_input = QtWidgets.QDoubleSpinBox()
+        self.height_input.setValue(2.0)
+        self.height_input.setRange(1.0, 10.0)
+        size_layout.addWidget(self.height_input)
+        layout.addLayout(size_layout)
+
     def assign_color(objects, color):
         if not isinstance(objects, list):
             objects = [objects]
