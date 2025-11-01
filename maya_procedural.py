@@ -87,6 +87,16 @@ class SimpleWindowCreator():
         self.curtain_check.setChecked(True)
         curtain_layout.addWidget(self.curtain_check)
 
+        curtain_type_layout = QtWidgets.QHBoxLayout()
+        curtain_type_layout.addWidget(QtWidgets.QLabel("Curtain Type:"))
+        self.curtain_type = QtWidgets.QComboBox()
+        self.curtain_type.addItem("Side Panels")
+        self.curtain_type.addItem("Simple Drapes")
+        self.curtain_type.addItem("Closed Curtains")
+        curtain_type_layout.addWidget(self.curtain_type)
+        curtain_layout.addLayout(curtain_type_layout)
+
+        layout.addLayout(curtain_layout)
 
 
 
