@@ -60,10 +60,25 @@ class SimpleWindowCreator():
         color_layout = QtWidgets.QVBoxLayout()
 
         self.window_color_btn = QtWidgets.QPushButton("Window Color")
-        self.window_color_btn.clicked.connect(lambda: self.pick_color)
+        self.window_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("window"))
+        color_layout.addWidget(self.window_color_btn)
+
+        self.divider_color_btn = QtWidgets.QPushButton("Divider Color")
+        self.divider_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("divider"))
+        color_layout.addWidget(self.divider_color_btn)
+
+        self.curtain_color_btn = QtWidgets.QPushButton("Curtain Color")
+        self.curtain_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("curtain"))
+        color_layout.addWidget(self.curtain_color_btn)
+
+
+
 
     def pick_color(self, color_type):
-        
+
 
     def assign_color(objects, color):
         if not isinstance(objects, list):
