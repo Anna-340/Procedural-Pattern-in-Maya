@@ -82,8 +82,11 @@ class SimpleWindowCreator():
         layout.addLayout(color_layout)
 
         #curtain Types
+        curtain_layout = QtWidgets.QVBoxLayout()
+        self.curtain_check = QtWidgets.QCheckBox("Add Curtains")
+        self.curtain_check.setChecked(True)
+        curtain_layout.addWidget(self.curtain_check)
 
-        
 
 
 
