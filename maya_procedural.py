@@ -42,6 +42,15 @@ class SimpleWindowCreator():
         size_layout.addWidget(self.height_input)
         layout.addLayout(size_layout)
 
+        divider_layout = QtWidgets.QHBoxLayout()
+        divider_layout.addWidget(QtWidgets.QLabel("Horiz Dividers:"))
+        self.horiz_dividers = QtWidgets.QSpinBox()
+        self.horiz_dividers.setValue(1)
+        self.horiz_dividers.setRange(0, 5)
+        divider_layout.addWidget(self.horiz_dividers)
+
+        divider_layout.addWidget((QtWidgets.QLabel("Vert Dividers:")))
+
     def assign_color(objects, color):
         if not isinstance(objects, list):
             objects = [objects]
