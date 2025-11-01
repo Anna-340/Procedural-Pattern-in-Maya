@@ -56,6 +56,11 @@ class SimpleWindowCreator():
         divider_layout.addWidget(self.vert_dividers)
         layout.addLayout(self.vert_dividers)
 
+        # Colors
+        color_layout = QtWidgets.QVBoxLayout()
+
+        self.window_color_btn = QtWidgets.QPushButton("Window Color")
+
     def assign_color(objects, color):
         if not isinstance(objects, list):
             objects = [objects]
