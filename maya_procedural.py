@@ -157,6 +157,9 @@ class SimpleWindowCreator():
         for obj in objects:
             cmds.sets(obj, edit=True, forceElement=shading_group)
 
+    def create_shader(self, name, color):
+        shader = cmds.shadingNode('lambert', asShader=True, name=name)
+
     def create_window_frame(width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness * 2,
                               h=height + frame_thickness * 2,
