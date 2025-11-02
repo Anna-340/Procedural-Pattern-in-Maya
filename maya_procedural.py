@@ -114,9 +114,9 @@ class SimpleWindowCreator():
         self.rod_color = (0.4, 0.2, 0.1)
 
 
-
     def pick_color(self, color_type):
-
+        color = QtWidgets.QColorDialog.getColor()
+        if color.isValid():
 
     def assign_color(objects, color):
         if not isinstance(objects, list):
