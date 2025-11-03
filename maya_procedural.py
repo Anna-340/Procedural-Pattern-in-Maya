@@ -34,6 +34,7 @@ class SimpleWindowCreator():
         curtain_layout = self.curtain_type_layout()
         layout.addLayout(curtain_layout)
         self.win_gen_and_clear_btn(layout)
+
         self.window_color = (0.8, 0.8, 0.9)
         self.divider_color = (0.3, 0.3, 0.3)
         self.curtain_color = (0.7, 0.2, 0.2)
@@ -150,11 +151,10 @@ class SimpleWindowCreator():
                          'Dark_red': (0.5, 0, 0), 
                          'Light_blue': (0.7, 0.7, 1.0), 'Yellow': (1, 1, 0), 
                          'Purple': (0.5, 0, 0.5)}
-            
+
             rgb = color_map.get(color, (0.5, 0.5, 0.5))
             cmds.setAttr(f'{shader}.color', rgb[0], rgb[1], rgb[2], 
                          type='double3')
-
         for obj in objects:
             cmds.sets(obj, edit=True, forceElement=shading_group)
 
