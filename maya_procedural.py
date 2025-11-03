@@ -136,6 +136,9 @@ class SimpleWindowCreator():
         shader_name = f"{color}_shader"
         shading_group = f"{color}_SG"
 
+        objects.shaders_to_win_components(color, shader_name)
+
+    def shaders_to_win_components(objects, color, shader_name):
         if not cmds.objExists(shader_name):
             shader = cmds.shadingNode('lambert', asShader=True, 
                                       name=shader_name)
@@ -143,7 +146,6 @@ class SimpleWindowCreator():
                                       empty=True, name=shading_group)
             cmds.connectAttr(f'{shader}.outColor', 
                              f'{shading_group}.surfaceShader')
-            
             color_map = {'White': (1, 1, 1), 'Black': (0, 0, 0), 
                          'Red': (1, 0, 0), 'Green': (0, 1, 0), 
                          'Blue': (0, 0, 1), 'Brown': (0.4, 0.2, 0), 
@@ -151,7 +153,6 @@ class SimpleWindowCreator():
                          'Dark_red': (0.5, 0, 0), 
                          'Light_blue': (0.7, 0.7, 1.0), 'Yellow': (1, 1, 0), 
                          'Purple': (0.5, 0, 0.5)}
-
             rgb = color_map.get(color, (0.5, 0.5, 0.5))
             cmds.setAttr(f'{shader}.color', rgb[0], rgb[1], rgb[2], 
                          type='double3')
