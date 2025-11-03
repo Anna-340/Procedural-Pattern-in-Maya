@@ -27,21 +27,64 @@ class SimpleWindowCreator():
 
     def ui_interface(self):
         layout = QtWidgets.QVBoxLayout(self)
+        self._window_layout(layout)
+        self.hor_ver_dividers_forwin(layout)
+        color_layout = self.color_for_win_components()
+        layout.addLayout(color_layout)
+        curtain_layout = self.curtain_type_layout()
+        layout.addLayout(curtain_layout)
+        self.win_gen_and_clear_btn(layout)
+        self.window_color = (0.8, 0.8, 0.9)
+        self.divider_color = (0.3, 0.3, 0.3)
+        self.curtain_color = (0.7, 0.2, 0.2)
+        self.rod_color = (0.4, 0.2, 0.1)
 
-        size_layout = QtWidgets.QHBoxLayout()
-        size_layout.addWidget(QtWidgets.QLabel("Width:"))
-        self.width_input = QtWidgets.QDoubleSpinBox()
-        self.width_input.setValue(3.0)
-        self.width_input.setRange(1.0, 10.0)
-        size_layout.addWidget(self.width_input)
+    def win_gen_and_clear_btn(self, layout):
+        self.generate_btn = QtWidgets.QPushButton("Generate Window")
+        self.generate_btn.clicked.connect(self.create_complete_window_ui)
+        layout.addWidget(self.generate_btn)
 
-        size_layout.addWidget(QtWidgets.QLabel("Height:"))
-        self.height_input = QtWidgets.QDoubleSpinBox()
-        self.height_input.setValue(2.0)
-        self.height_input.setRange(1.0, 10.0)
-        size_layout.addWidget(self.height_input)
-        layout.addLayout(size_layout)
+        self.clear_btn = QtWidgets.QPushButton("Clear Scene")
+        self.clear_btn.clicked.connect(self.clear_scene)
+        layout.addWidget(self.clear_btn)
 
+    def color_for_win_components(self):
+        color_layout = QtWidgets.QVBoxLayout()
+        self.window_color_btn = QtWidgets.QPushButton("Window Color")
+        self.window_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("window"))
+        color_layout.addWidget(self.window_color_btn)
+        self.divider_color_btn = QtWidgets.QPushButton("Divider Color")
+        self.divider_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("divider"))
+        color_layout.addWidget(self.divider_color_btn)
+        self.curtain_color_btn = QtWidgets.QPushButton("Curtain Color")
+        self.curtain_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("curtain"))
+        color_layout.addWidget(self.curtain_color_btn)
+        self.rod_color_btn = QtWidgets.QPushButton("Rod Color")
+        self.rod_color_btn.clicked.connect(lambda: 
+                                              self.pick_color("rod"))
+        color_layout.addWidget(self.rod_color_btn)
+        return color_layout
+
+    def curtain_type_layout(self):
+        curtain_layout = QtWidgets.QVBoxLayout()
+        self.curtain_check = QtWidgets.QCheckBox("Add Curtains")
+        self.curtain_check.setChecked(True)
+        curtain_layout.addWidget(self.curtain_check)
+
+        curtain_type_layout = QtWidgets.QHBoxLayout()
+        curtain_type_layout.addWidget(QtWidgets.QLabel("Curtain Type:"))
+        self.curtain_type = QtWidgets.QComboBox()
+        self.curtain_type.addItem("Side Panels")
+        self.curtain_type.addItem("Simple Drapes")
+        self.curtain_type.addItem("Closed Curtains")
+        curtain_type_layout.addWidget(self.curtain_type)
+        curtain_layout.addLayout(curtain_type_layout)
+        return curtain_layout
+
+    def hor_ver_dividers_forwin(self, layout):
         divider_layout = QtWidgets.QHBoxLayout()
         divider_layout.addWidget(QtWidgets.QLabel("Horiz Dividers:"))
         self.horiz_dividers = QtWidgets.QSpinBox()
@@ -56,62 +99,20 @@ class SimpleWindowCreator():
         divider_layout.addWidget(self.vert_dividers)
         layout.addLayout(self.vert_dividers)
 
-        # Colors
-        color_layout = QtWidgets.QVBoxLayout()
+    def _window_layout(self, layout):
+        size_layout = QtWidgets.QHBoxLayout()
+        size_layout.addWidget(QtWidgets.QLabel("Width:"))
+        self.width_input = QtWidgets.QDoubleSpinBox()
+        self.width_input.setValue(3.0)
+        self.width_input.setRange(1.0, 10.0)
+        size_layout.addWidget(self.width_input)
 
-        self.window_color_btn = QtWidgets.QPushButton("Window Color")
-        self.window_color_btn.clicked.connect(lambda: 
-                                              self.pick_color("window"))
-        color_layout.addWidget(self.window_color_btn)
-
-        self.divider_color_btn = QtWidgets.QPushButton("Divider Color")
-        self.divider_color_btn.clicked.connect(lambda: 
-                                              self.pick_color("divider"))
-        color_layout.addWidget(self.divider_color_btn)
-
-        self.curtain_color_btn = QtWidgets.QPushButton("Curtain Color")
-        self.curtain_color_btn.clicked.connect(lambda: 
-                                              self.pick_color("curtain"))
-        color_layout.addWidget(self.curtain_color_btn)
-
-        self.rod_color_btn = QtWidgets.QPushButton("Rod Color")
-        self.rod_color_btn.clicked.connect(lambda: 
-                                              self.pick_color("rod"))
-        color_layout.addWidget(self.rod_color_btn)
-
-        layout.addLayout(color_layout)
-
-        #curtain Types
-        curtain_layout = QtWidgets.QVBoxLayout()
-        self.curtain_check = QtWidgets.QCheckBox("Add Curtains")
-        self.curtain_check.setChecked(True)
-        curtain_layout.addWidget(self.curtain_check)
-
-        curtain_type_layout = QtWidgets.QHBoxLayout()
-        curtain_type_layout.addWidget(QtWidgets.QLabel("Curtain Type:"))
-        self.curtain_type = QtWidgets.QComboBox()
-        self.curtain_type.addItem("Side Panels")
-        self.curtain_type.addItem("Simple Drapes")
-        self.curtain_type.addItem("Closed Curtains")
-        curtain_type_layout.addWidget(self.curtain_type)
-        curtain_layout.addLayout(curtain_type_layout)
-
-        layout.addLayout(curtain_layout)
-
-        #window generation button
-        self.generate_btn = QtWidgets.QPushButton("Generate Window")
-        self.generate_btn.clicked.connect(self.create_complete_window_ui)
-        layout.addWidget(self.generate_btn)
-
-        self.clear_btn = QtWidgets.QPushButton("Clear Scene")
-        self.clear_btn.clicked.connect(self.clear_scene)
-        layout.addWidget(self.clear_btn)
-
-        #Colors
-        self.window_color = (0.8, 0.8, 0.9)
-        self.divider_color = (0.3, 0.3, 0.3)
-        self.curtain_color = (0.7, 0.2, 0.2)
-        self.rod_color = (0.4, 0.2, 0.1)
+        size_layout.addWidget(QtWidgets.QLabel("Height:"))
+        self.height_input = QtWidgets.QDoubleSpinBox()
+        self.height_input.setValue(2.0)
+        self.height_input.setRange(1.0, 10.0)
+        size_layout.addWidget(self.height_input)
+        layout.addLayout(size_layout)
 
 
     def pick_color(self, color_type):
