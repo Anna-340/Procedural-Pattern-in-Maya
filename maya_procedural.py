@@ -115,7 +115,6 @@ class SimpleWindowCreator():
         size_layout.addWidget(self.height_input)
         layout.addLayout(size_layout)
 
-
     def pick_color(self, color_type):
         color = QtWidgets.QColorDialog.getColor()
         if color.isValid():
@@ -175,13 +174,11 @@ class SimpleWindowCreator():
         cmds.move(0, 0, -depth/2, frame)
         return frame
 
-
     def create_glass(width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
                               d=0.01, name="window_glass")[0]
         cmds.move(0, 0, depth/2, glass)
         return glass
-
 
     def horizontal_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
@@ -193,7 +190,6 @@ class SimpleWindowCreator():
             dividers.append(div)
         return dividers
  
- 
     def vertical_dividers(width, height, depth, count, thickness=0.1):
         dividers = []
         for ver in range(count):
@@ -203,7 +199,6 @@ class SimpleWindowCreator():
             cmds.move(div_x, 0, 0.085, div)
             dividers.append(div)
         return dividers
-
 
     def create_dividers_group(width, height, depth, hor_div_count=0, 
                               ver_div_count=0, thickness=0.1):
@@ -225,7 +220,6 @@ class SimpleWindowCreator():
             return dividers_group
         else:
             return None
-
 
     def create_side_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
@@ -256,7 +250,6 @@ class SimpleWindowCreator():
 
         return curtains_group
     
-    
     def create_closed_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = width * 1.2
@@ -269,7 +262,7 @@ class SimpleWindowCreator():
         cmds.move(0, 0, frame_depth + curtain_thickness/2 + 0.1, curtain)
 
         rod_len = curtain_width * 1.1
-        rod_radi = max(0.2, width * 0.007)
+        rod_radi = max(0.2, width * 0.07)
         rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
         cmds.move(0, height/2 + 0.1, frame_depth/2 + curtain_thickness + 0.05,
@@ -277,7 +270,6 @@ class SimpleWindowCreator():
 
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
-    
     
     def create_complete_window(width=3.0, height=2.0, depth=0.2, 
                                hor_div_count=1, ver_div_count=1, 
