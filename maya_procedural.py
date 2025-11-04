@@ -297,9 +297,22 @@ class SimpleWindowCreator():
         curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
         return curtain_group
     
-    def create_complete_window(width=3.0, height=2.0, depth=0.2, 
+    def create_complete_window(self, width=3.0, height=2.0, depth=0.2, 
                                hor_div_count=1, ver_div_count=1, 
-                               curtain_type='open'):
+                               curtain_type='Side Curtains'):
+
+        frame = self.create_window_frame(width, height, depth)
+        glass = self.create_glass(width, height, depth)
+
+        dividers_group = self.create_dividers_group(width, height, depth, 
+                                                hor_div_count, ver_div_count)
+        curtains = None
+        if curtain_type == "Side Curtains":
+            curtains = self.create_side_curtains(width, height, depth)
+        elif curtain_type == "Drapes":
+            curtains = self.create_drapes(width, height, depth)
+        elif curtain_type == "Closed Curtains":
+            curtain_type = self.create_closed_curtains(width, height, depth)
 
         window_parts = [frame, glass]
         if dividers_group:
