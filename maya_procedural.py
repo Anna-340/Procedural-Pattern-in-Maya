@@ -161,6 +161,12 @@ class SimpleWindowCreator():
 
     def create_shader(self, name, color):
         shader = cmds.shadingNode('lambert', asShader=True, name=name)
+        sg = cmds.sets(name=name + "SG", empty=True, renderable=True, 
+                       noSurfaceShader=True)
+        cmds.connectAttr(shader + '.outColor', sg + '.surfaceShader')
+        cmds.setAttr(shader + '.color', color[0], color[1], color[2], 
+                     type='double3')
+        return sg
 
     def create_window_frame(width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness * 2,
