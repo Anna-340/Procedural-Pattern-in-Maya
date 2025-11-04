@@ -300,26 +300,14 @@ class SimpleWindowCreator():
     def create_complete_window(width=3.0, height=2.0, depth=0.2, 
                                hor_div_count=1, ver_div_count=1, 
                                curtain_type='open'):
-        frame = SimpleWindowCreator.create_window_frame(width, height, depth)
-        glass = SimpleWindowCreator.create_glass(width, height, depth)
 
-        dividers_group = SimpleWindowCreator.create_dividers_group(width, 
-                                height, depth, hor_div_count, ver_div_count)
-        
-        curtains = None
-        if curtain_type == 'open':
-            curtains = SimpleWindowCreator.create_side_curtains(width, height, 
-                                                                depth)
-        elif curtain_type == 'closed':
-            curtains = SimpleWindowCreator.create_closed_curtains(width, 
-                                                                height, depth)
         window_parts = [frame, glass]
         if dividers_group:
             window_parts.append(dividers_group)
         if curtains:
             window_parts.append(curtains)
 
-        window_group = cmds.group(window_parts, name=f"window_{curtain_type}")
+        window_group = cmds.group(window_parts, name="window_group")
 
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
