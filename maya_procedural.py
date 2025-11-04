@@ -254,6 +254,10 @@ class SimpleWindowCreator():
         drape_thickness = 0.08
         drape_width = max(0.35, width * 0.12)
         drape_height = height *1.3
+
+        drape_z_pos = frame_depth/2 + drape_thickness/2 + 0.03
+        left_drape = cmds.polyCube(w=drape_width, h=drape_height, 
+                                   d=drape_thickness, name="left_drape")[0]
     
     def create_closed_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
