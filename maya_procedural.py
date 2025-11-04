@@ -265,6 +265,16 @@ class SimpleWindowCreator():
                                    d=drape_thickness, name="right_drape")[0]
         cmds.move(width/3, -drape_height/2 + height/2 + 0.1, drape_z_pos, 
                   right_drape)
+        
+        rod_len = width * 0.7
+        rod_radius = max(0.035, width * 0.01)
+        rod = cmds.polyCylinder(r=rod_radius, h=rod_len, name="drape_rod")[0]
+        cmds.rotate(0, 0, 90, rod)
+        cmds.move(0, height/2 + 0.1, drape_z_pos, rod)
+
+        drapes_grp = cmds.group([left_drape, right_drape, rod], 
+                                name="simple_drapes_grp")
+        return drapes_grp
 
     def create_closed_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
