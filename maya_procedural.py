@@ -250,6 +250,11 @@ class SimpleWindowCreator():
 
         return curtains_group
     
+    def create_drapes(self, width, height, frame_depth):
+        drape_thickness = 0.08
+        drape_width = max(0.35, width * 0.12)
+        drape_height = height *1.3
+    
     def create_closed_curtains(width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = width * 1.2
