@@ -345,6 +345,26 @@ class SimpleWindowCreator():
 
         cmds.sets(window_data['frame'], forceElement=frame_sg)
         cmds.sets(window_data['glass'], forceElement=glass_sg)
+
+        if window_data['dividers_group']:
+            divider_children = cmds.listRelatives(window_data['dividers_group'], 
+                                                  children=True) or []
+            for divider in divider_children:
+                cmds.sets(divider, forceElement=divider_sg)
+
+        if window_data['curtains'] and add_curtains:
+            curtain_children = cmds.ListRelatives(window_data["curtains"], 
+                                            children=True, fullPath=True) or []
+            for child in curtain_children:
+                child_name = child.split('|')[-1].lower()
+                if 'rod' in child_name:
+                    cmds.sets(child, forceElement=rod_sg)
+                elif any(keyword in child_name for keyword in ['curtain', 'drape']):
+                    cmds.sets(child, forceElement=curtain_sg)
+        cmds.select(window_data['group'])
+        print("Window Created!")
+        return window_data
+    
     def clear_scene(self):
         pass
 
