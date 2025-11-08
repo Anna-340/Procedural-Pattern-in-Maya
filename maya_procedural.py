@@ -325,9 +325,26 @@ class SimpleWindowCreator():
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
 
-    def create_complete_window_ui():
-        pass
+    def create_complete_window_ui(self):
+        width = self.width_input.value()
+        height = self.height_input.vlaue()
+        hor_div_count = self.horiz_dividers.value()
+        ver_div_count = self.vert_dividers.value()
+        curtain_type = self.curtain_type.currentText()
+        add_curtains = self.curtain_check.isChecked()
 
+        window_data = self.create_complete_window(width=width, height=height,
+                                                  hor_div_count=hor_div_count, 
+                                                  ver_div_count=ver_div_count,
+                        curtain_type=curtain_type if add_curtains else None)
+        frame_sg = self.create_shader("frame_shader", self.window_color)
+        glass_sg = self.create_shader("glass_shader", (0.9, 0.95, 1.0))
+        divider_sg = self.create_shader("divider_shader", self.divider_color)
+        curtain_sg = self.create_shader("curtain_shader", self.curtain_color)
+        rod_sg = self.create_shader("rod_shader", self.rod_color)
+
+        cmds.sets(window_data['frame'], forceElement=frame_sg)
+        cmds.sets(window_data['glass'], forceElement=glass_sg)
     def clear_scene(self):
         pass
 
