@@ -366,7 +366,12 @@ class SimpleWindowCreator():
         return window_data
     
     def clear_scene(self):
-        pass
+        window_groups = cmds.ls("window_group*", "side_curtains_grp", 
+                                "closed_curtains_grp", "simple_drapes_grp", 
+                                "window_dividers_grp", transforms=True)
+        if window_groups:
+            cmds.delete(window_groups)
+            print("Scene Cleared")
 
 if __name__ == "__main__":
     
