@@ -98,7 +98,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         self.vert_dividers.setValue(1)
         self.vert_dividers.setRange(0, 5)
         divider_layout.addWidget(self.vert_dividers)
-        layout.addLayout(self.vert_dividers)
+        layout.addLayout(divider_layout)
 
     def _window_layout(self, layout):
         size_layout = QtWidgets.QHBoxLayout()
