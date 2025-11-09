@@ -1,17 +1,3 @@
-#Three simple challenges or one complex one 
-#-trying to make the user interface more simplified and readable
-#-could add a slider for window contols like how big or small it is 
-
-#Custom Maya shelf button and icon & user interface
-
-#Number of intuative/paramters for asset generator (5 to 10) arguments
-#- dividers on window horizontal and vertical
-#- possible curtain changes?
-#- window size in general
-
-#Challenge features
-#- Extra research for UI interface
-
 import maya.cmds as cmds
 from PySide2 import QtWidgets, QtCore, QtGui
 
