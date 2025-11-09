@@ -323,7 +323,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
 
     def create_complete_window_ui(self):
         width = self.width_input.value()
-        height = self.height_input.vlaue()
+        height = self.height_input.value()
         hor_div_count = self.horiz_dividers.value()
         ver_div_count = self.vert_dividers.value()
         curtain_type = self.curtain_type.currentText()
