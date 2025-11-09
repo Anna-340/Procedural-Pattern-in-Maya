@@ -334,6 +334,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
                                                   hor_div_count=hor_div_count, 
                                                   ver_div_count=ver_div_count,
                         curtain_type=curtain_type if add_curtains else None)
+        
         frame_sg = self.create_shader("frame_shader", self.window_color)
         glass_sg = self.create_shader("glass_shader", (0.9, 0.95, 1.0))
         divider_sg = self.create_shader("divider_shader", self.divider_color)
@@ -344,20 +345,20 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         cmds.sets(window_data['glass'], forceElement=glass_sg)
 
         if window_data['dividers_group']:
-            divider_children = cmds.listRelatives(window_data['dividers_group'], 
+            dividers = cmds.listRelatives(window_data['dividers_group'], 
                                                   children=True) or []
-            for divider in divider_children:
+            for divider in dividers:
                 cmds.sets(divider, forceElement=divider_sg)
 
         if window_data['curtains'] and add_curtains:
-            curtain_children = cmds.ListRelatives(window_data["curtains"], 
+            curtain_objects = cmds.listRelatives(window_data["curtains"], 
                                             children=True, fullPath=True) or []
-            for child in curtain_children:
-                child_name = child.split('|')[-1].lower()
-                if 'rod' in child_name:
-                    cmds.sets(child, forceElement=rod_sg)
-                elif any(keyword in child_name for keyword in ['curtain', 'drape']):
-                    cmds.sets(child, forceElement=curtain_sg)
+            for obj in curtain_objects:
+                obj_name = obj.lower()
+                if 'rod' in obj_name:
+                    cmds.sets(obj, forceElement=rod_sg)
+                else:
+                    cmds.sets(obj, forceElement=curtain_sg)
         cmds.select(window_data['group'])
         print("Window Created!")
         return window_data
