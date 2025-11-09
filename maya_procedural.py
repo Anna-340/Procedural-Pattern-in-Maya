@@ -202,13 +202,13 @@ class SimpleWindowCreator(QtWidgets.QWidget):
                               ver_div_count=0, thickness=0.1):
         dividers = []
         if hor_div_count > 0:
-            hor_dividers = SimpleWindowCreator.horizontal_dividers(width, 
+            hor_dividers = self.horizontal_dividers(width, 
                                 height, depth, hor_div_count, thickness)
             
             dividers.extend(hor_dividers)
 
         if ver_div_count > 0:
-            ver_dividers = SimpleWindowCreator.vertical_dividers(width, 
+            ver_dividers = self.vertical_dividers(width, 
                                 height, depth, ver_div_count, thickness)
             
             dividers.extend(ver_dividers)
