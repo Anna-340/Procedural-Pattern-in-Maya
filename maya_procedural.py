@@ -284,7 +284,7 @@ class SimpleWindowCreator():
         cmds.move(0, 0, frame_depth + curtain_thickness/2 + 0.1, curtain)
 
         rod_len = curtain_width * 1.1
-        rod_radi = max(0.2, width * 0.07)
+        rod_radi = max(0.035, width * 0.01)
         rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
         cmds.move(0, height/2 + 0.1, frame_depth/2 + curtain_thickness + 0.05,
