@@ -134,7 +134,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         shader_name = f"{color}_shader"
         self.shaders_to_win_components(color, shader_name)
 
-    def shaders_to_win_components(objects, color, shader_name):
+    def shaders_to_win_components(self, objects, color, shader_name):
         if not cmds.objExists(shader_name):
             shader = cmds.shadingNode('lambert', asShader=True, 
                                       name=shader_name)
@@ -164,20 +164,20 @@ class SimpleWindowCreator(QtWidgets.QWidget):
                      type='double3')
         return sg
 
-    def create_window_frame(width, height, depth, frame_thickness=0.2):
+    def create_window_frame(self, width, height, depth, frame_thickness=0.2):
         frame = cmds.polyCube(w=width + frame_thickness * 2,
                               h=height + frame_thickness * 2,
                               d=depth, name="window_frame")[0]
         cmds.move(0, 0, -depth/2, frame)
         return frame
 
-    def create_glass(width, height, depth):
+    def create_glass(self, width, height, depth):
         glass = cmds.polyCube(w=width, h=height, 
                               d=0.01, name="window_glass")[0]
         cmds.move(0, 0, depth/2, glass)
         return glass
 
-    def horizontal_dividers(width, height, depth, count, thickness=0.1):
+    def horizontal_dividers(self, width, height, depth, count, thickness=0.1):
         dividers = []
         for hor in range(count):
             div_y = ((hor + 1) * height / (count + 1) - (height / 2))
@@ -187,7 +187,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
             dividers.append(div)
         return dividers
  
-    def vertical_dividers(width, height, depth, count, thickness=0.1):
+    def vertical_dividers(self, width, height, depth, count, thickness=0.1):
         dividers = []
         for ver in range(count):
             div_x = ((ver + 1) * width / (count + 1) - (width / 2)) 
@@ -197,7 +197,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
             dividers.append(div)
         return dividers
 
-    def create_dividers_group(width, height, depth, hor_div_count=0, 
+    def create_dividers_group(self, width, height, depth, hor_div_count=0, 
                               ver_div_count=0, thickness=0.1):
         dividers = []
         if hor_div_count > 0:
@@ -218,7 +218,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         else:
             return None
 
-    def create_side_curtains(width, height, frame_depth):
+    def create_side_curtains(self, width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = max(0.4, width * 0.15)
         curtain_height = height * 1.3
@@ -272,7 +272,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
                                 name="simple_drapes_grp")
         return drapes_grp
 
-    def create_closed_curtains(width, height, frame_depth):
+    def create_closed_curtains(self, width, height, frame_depth):
         curtain_thickness = 0.1
         curtain_width = width * 1.2
         curtain_height = height * 1.1
