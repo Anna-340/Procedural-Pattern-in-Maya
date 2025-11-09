@@ -132,7 +132,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         if not isinstance(objects, list):
             objects = [objects]
         shader_name = f"{color}_shader"
-        self.shaders_to_win_components(color, shader_name)
+        self.shaders_to_win_components(color, shader_name, objects)
 
     def shaders_to_win_components(self, objects, color, shader_name):
         if not cmds.objExists(shader_name):
