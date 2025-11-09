@@ -369,5 +369,12 @@ class SimpleWindowCreator():
             cmds.delete(window_groups)
             print("Scene Cleared")
 
+
 if __name__ == "__main__":
-    
+    try:
+        window_creator.close()
+        window_creator.deleteLater()
+    except:
+        pass
+    window_creator = SimpleWindowCreator()
+    window_creator.show()
