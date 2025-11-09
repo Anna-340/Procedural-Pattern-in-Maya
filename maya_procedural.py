@@ -135,6 +135,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         self.shaders_to_win_components(color, shader_name, objects)
 
     def shaders_to_win_components(self, objects, color, shader_name):
+        shading_group = f"{color}_SG"
         if not cmds.objExists(shader_name):
             shader = cmds.shadingNode('lambert', asShader=True, 
                                       name=shader_name)
