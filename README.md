@@ -1,0 +1,11 @@
+Challenge Features:
+- Added color picker for window pieces (Window, dividers, curtain and rod)
+- Added drop down selection menue for curtians
+- Check box for adding curtians
+- Added maya shaders 
+- Assigned colors to different window pieces
+- Generated glass, window, curtains, dividers and a rod
+- Different curtain types with different geometry and scale based on user parameters
+- Grouped and organized window components like dividers and curtains
+- Added a clear scene button
+- Transformed window and curtains so they are above the origin 
