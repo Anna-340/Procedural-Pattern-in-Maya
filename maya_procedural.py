@@ -16,7 +16,7 @@ import maya.cmds as cmds
 from PySide2 import QtWidgets, QtCore, QtGui
 
 
-class SimpleWindowCreator():
+class SimpleWindowCreator(QtWidgets.QWidget):
 
     def __init__(self):
         super(SimpleWindowCreator, self).__init__()
