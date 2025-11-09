@@ -244,7 +244,6 @@ class SimpleWindowCreator():
 
         curtains_group = cmds.group([left_curtain, right_curtain, rod],
                                     name="side_curtains_grp")
-
         return curtains_group
     
     def create_drapes(self, width, height, frame_depth):
