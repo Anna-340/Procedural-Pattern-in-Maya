@@ -305,7 +305,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         curtains = None
         if curtain_type == "Side Curtains":
             curtains = self.create_side_curtains(width, height, depth)
-        elif curtain_type == "Drapes":
+        elif curtain_type == "Simple Drapes":
             curtains = self.create_drapes(width, height, depth)
         elif curtain_type == "Closed Curtains":
             curtain_type = self.create_closed_curtains(width, height, depth)
