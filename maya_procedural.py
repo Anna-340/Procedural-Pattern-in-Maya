@@ -355,7 +355,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
             curtain_objects = cmds.listRelatives(window_data["curtains"], 
                                             children=True, fullPath=True) or []
             for obj in curtain_objects:
-                obj_name = obj.lower()
+                obj_name = obj.split('|')[-1].lower()
                 if 'rod' in obj_name:
                     cmds.sets(obj, forceElement=rod_sg)
                 else:
