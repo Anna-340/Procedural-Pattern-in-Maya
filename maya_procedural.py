@@ -128,14 +128,11 @@ class SimpleWindowCreator():
             elif color_type == "rod":
                 self.rod_color = rgb
 
-    def assign_color(objects, color):
+    def assign_color(self, objects, color):
         if not isinstance(objects, list):
             objects = [objects]
-
         shader_name = f"{color}_shader"
-        shading_group = f"{color}_SG"
-
-        objects.shaders_to_win_components(color, shader_name)
+        self.shaders_to_win_components(color, shader_name)
 
     def shaders_to_win_components(objects, color, shader_name):
         if not cmds.objExists(shader_name):
