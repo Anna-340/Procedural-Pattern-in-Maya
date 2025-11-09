@@ -288,10 +288,10 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         rod_radi = max(0.035, width * 0.01)
         rod = cmds.polyCylinder(r=rod_radi, h=rod_len, name="curtain_rod")[0]
         cmds.rotate(0, 0, 90, rod)
-        cmds.move(0, height/2 + 0.1, frame_depth/2 + curtain_thickness + 0.05,
+        cmds.move(0, curtain_height/2, frame_depth/2 + curtain_thickness + 0.05,
         rod)
 
-        curtain_group = cmds.group(curtain, rod, name="closed_curtains_grp")
+        curtain_group = cmds.group([curtain, rod], name="closed_curtains_grp")
         return curtain_group
     
     def create_complete_window(self, width=3.0, height=2.0, depth=0.2, 
@@ -309,7 +309,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
         elif curtain_type == "Simple Drapes":
             curtains = self.create_drapes(width, height, depth)
         elif curtain_type == "Closed Curtains":
-            curtain_type = self.create_closed_curtains(width, height, depth)
+            curtains = self.create_closed_curtains(width, height, depth)
 
         window_parts = [frame, glass]
         if dividers_group:
