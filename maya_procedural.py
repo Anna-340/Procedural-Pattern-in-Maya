@@ -318,6 +318,7 @@ class SimpleWindowCreator(QtWidgets.QWidget):
             window_parts.append(curtains)
 
         window_group = cmds.group(window_parts, name="window_group")
+        cmds.move(0, 3.5, 0, window_group)
 
         return {'group': window_group, 'frame': frame, 'glass': glass, 
                 'dividers_group': dividers_group, 'curtains': curtains}
